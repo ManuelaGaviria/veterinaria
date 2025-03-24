@@ -1,3 +1,7 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
@@ -6,12 +10,27 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Cliente Ash = new Cliente(1L, "Ash", "562526", "ash@gmail.com", "calle 10");
+        Mascota Pikachu = new Mascota(1L, "Pikachu", "Electrico", LocalDate.of(2025,03,18));
+        Mascota Bulbasaur = new Mascota(1L, "Bulbasaur", "Planta", LocalDate.of(2025,03,18));
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Ash.setMascotas(Pikachu);
+        Ash.setMascotas(Bulbasaur);
+
+        /*
+        List<Mascota> listaMascotas = new ArrayList<>();
+        listaMascotas.add(Pikachu);
+        */
+
+        System.out.println(Pikachu);
+        /*
+        System.out.println(Ash.getNombre() + " tiene las siguientes mascotitas: ");
+
+        for (Mascota mascota : Ash.getMascotas()) {
+            System.out.println(mascota.getNombre() + " " + mascota.getEspecie());
         }
+
+         */
+
     }
 }
