@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
-    private Long id;
+    private Integer id;
     private String nombre;
     private String telefono;
     private String email;
     private String direccion;
     private List<Mascota> mascotas;
 
-    public Cliente(Long id, String nombre, String telefono, String email, String direccion) {
+    public Cliente(Integer id, String nombre, String telefono, String email, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -18,11 +18,11 @@ public class Cliente {
         this.mascotas = new ArrayList<>();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

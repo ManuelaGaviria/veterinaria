@@ -4,30 +4,30 @@ import java.util.Date;
 import java.util.List;
 
 public class Mascota {
-    private Long id;
+    private Integer id;
     private String nombre;
     private String especie;
-    private LocalDate edad;
-    private String historialMedico;
-    private Cliente dueno;
+    private LocalDate fechaNacimiento;
     private List<HistorialEstado> historialEstados;
-
     private List<AplicacionMedicamento> aplicacionMedicamentos;
 
-    public Mascota(Long id, String nombre, String especie, LocalDate edad) {
+    public Mascota() {
+    }
+
+    public Mascota(Integer id, String nombre, String especie, LocalDate fechaNacimiento) {
         this.id = id;
         this.nombre = nombre;
         this.especie = especie;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
         this.historialEstados = new ArrayList<>();
         this.aplicacionMedicamentos = new ArrayList<>();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,40 +47,12 @@ public class Mascota {
         this.especie = especie;
     }
 
-    public LocalDate getEdad() {
-        return edad;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setEdad(LocalDate edad) {
-        this.edad = edad;
-    }
-
-    public String getHistorialMedico() {
-        return historialMedico;
-    }
-
-    public void setHistorialMedico(String historialMedico) {
-        this.historialMedico = historialMedico;
-    }
-
-    public Cliente getDueno() {
-        return dueno;
-    }
-
-    public void setDueno(Cliente dueno) {
-        this.dueno = dueno;
-    }
-
-    @Override
-    public String toString() {
-        return "Mascota{" +
-                "id=" + this.id +
-                ", nombre='" + this.nombre + '\'' +
-                ", especie='" + this.especie + '\'' +
-                ", edad=" + this.edad +
-                ", historialMedico='" + this.historialMedico + '\'' +
-                ", historialEstados=" + this.historialEstados +
-                '}';
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public List<HistorialEstado> getHistorialEstados() {
@@ -91,11 +63,21 @@ public class Mascota {
         this.historialEstados = historialEstados;
     }
 
-    public void actualizarEstado(Estado nuevoEstado, Empleado veterinario) {
-        historialEstados.add(new HistorialEstado(this, nuevoEstado, new Date(), "Cambio de estado", veterinario));
+    public List<AplicacionMedicamento> getAplicacionMedicamentos() {
+        return aplicacionMedicamentos;
     }
 
-    public List<HistorialEstado> obtenerHistorial() {
-        return historialEstados;
+    public void setAplicacionMedicamentos(List<AplicacionMedicamento> aplicacionMedicamentos) {
+        this.aplicacionMedicamentos = aplicacionMedicamentos;
+    }
+
+    @Override
+    public String toString() {
+        return "Mascota{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", especie='" + especie + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                '}';
     }
 }

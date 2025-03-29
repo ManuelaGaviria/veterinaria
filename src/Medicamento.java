@@ -1,17 +1,19 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Medicamento {
-    private Long id;
+    private Integer id;
     private String nombre;
     private int cantidadStock;
     private double precio;
-    private Date fechaVencimiento;
-
+    private LocalDate fechaVencimiento;
     private List<AplicacionMedicamento> aplicacionMedicamentos;
 
-    public Medicamento(Long id, String nombre, int cantidadStock, double precio, Date fechaVencimiento) {
+    public Medicamento() {
+    }
+
+    public Medicamento(Integer id, String nombre, int cantidadStock, double precio, LocalDate fechaVencimiento) {
         this.id = id;
         this.nombre = nombre;
         this.cantidadStock = cantidadStock;
@@ -20,11 +22,11 @@ public class Medicamento {
         this.aplicacionMedicamentos = new ArrayList<>();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -52,11 +54,11 @@ public class Medicamento {
         this.precio = precio;
     }
 
-    public Date getFechaVencimiento() {
+    public LocalDate getFechaVencimiento() {
         return fechaVencimiento;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
 
@@ -68,8 +70,15 @@ public class Medicamento {
         this.aplicacionMedicamentos = aplicacionMedicamentos;
     }
 
-    public boolean estaVencido() {
-        return new Date().after(fechaVencimiento);
+    @Override
+    public String toString() {
+        return "Medicamento{" +
+                "id=" + getId() +
+                ", nombre='" + getNombre() + '\'' +
+                ", cantidadStock=" + getCantidadStock() +
+                ", precio=" + getPrecio() +
+                ", fechaVencimiento=" + getFechaVencimiento() +
+                '}';
     }
 
     public void reducirStock(int cantidad) {
